@@ -1,0 +1,14 @@
+{
+  "name": "RemoteCar",
+  "version": "1.0.0",
+  "author": "Ashok Gowtham M <ashokgowtham123@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "main": "node control.js"
+  },
+  "dependencies": {
+    "iohook": "^0.7.2",
+    "keypress": "^0.2.1",
+    "mqtt": "^4.2.6"
+  }
+}

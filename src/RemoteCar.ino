@@ -63,6 +63,8 @@ const char* mqttServer = "192.168.0.76";
 
 void heartBeatCallback();
 
+void stopCar();
+
 Scheduler taskRunner;
 //Task lockDoorTask(0, 1, &lockDoorCallback);
 //Task beepTask(100, 4, &beepOnCallback);
@@ -81,6 +83,11 @@ void heartBeatCallback() {
   snprintf(buffer, sizeof(buffer), "[" DEVICE_NAME "] (%s) free_memory: %u", WiFi.localIP().toString().c_str(), freeMemory);
   client.publish(SEND_TOPIC, buffer);
 }
+
+void stopCar() {
+
+}
+
 //
 //void stateChangeTo(LockStates newLockState) {
 //  lockState = newLockState;
@@ -226,518 +233,6 @@ void setup() {
 
 //  loadStateFromStorage();
   publishStartupMessage();
-digitalWrite(D0, 0);
-digitalWrite(D1, 0);
-digitalWrite(D2, 0);
-digitalWrite(D3, 0);
-digitalWrite(D4, 0);
-digitalWrite(D5, 0);
-
-delay(100);
-digitalWrite(D0, 0);
-digitalWrite(D1, 0);
-digitalWrite(D2, 0);
-digitalWrite(D3, 0);
-digitalWrite(D4, 0);
-digitalWrite(D5, 1);
-
-delay(100);
-digitalWrite(D0, 0);
-digitalWrite(D1, 0);
-digitalWrite(D2, 0);
-digitalWrite(D3, 0);
-digitalWrite(D4, 1);
-digitalWrite(D5, 0);
-
-delay(100);
-digitalWrite(D0, 0);
-digitalWrite(D1, 0);
-digitalWrite(D2, 0);
-digitalWrite(D3, 0);
-digitalWrite(D4, 1);
-digitalWrite(D5, 1);
-
-delay(100);
-digitalWrite(D0, 0);
-digitalWrite(D1, 0);
-digitalWrite(D2, 0);
-digitalWrite(D3, 1);
-digitalWrite(D4, 0);
-digitalWrite(D5, 0);
-
-delay(100);
-digitalWrite(D0, 0);
-digitalWrite(D1, 0);
-digitalWrite(D2, 0);
-digitalWrite(D3, 1);
-digitalWrite(D4, 0);
-digitalWrite(D5, 1);
-
-delay(100);
-digitalWrite(D0, 0);
-digitalWrite(D1, 0);
-digitalWrite(D2, 0);
-digitalWrite(D3, 1);
-digitalWrite(D4, 1);
-digitalWrite(D5, 0);
-
-delay(100);
-digitalWrite(D0, 0);
-digitalWrite(D1, 0);
-digitalWrite(D2, 0);
-digitalWrite(D3, 1);
-digitalWrite(D4, 1);
-digitalWrite(D5, 1);
-
-delay(100);
-digitalWrite(D0, 0);
-digitalWrite(D1, 0);
-digitalWrite(D2, 1);
-digitalWrite(D3, 0);
-digitalWrite(D4, 0);
-digitalWrite(D5, 0);
-
-delay(100);
-digitalWrite(D0, 0);
-digitalWrite(D1, 0);
-digitalWrite(D2, 1);
-digitalWrite(D3, 0);
-digitalWrite(D4, 0);
-digitalWrite(D5, 1);
-
-delay(100);
-digitalWrite(D0, 0);
-digitalWrite(D1, 0);
-digitalWrite(D2, 1);
-digitalWrite(D3, 0);
-digitalWrite(D4, 1);
-digitalWrite(D5, 0);
-
-delay(100);
-digitalWrite(D0, 0);
-digitalWrite(D1, 0);
-digitalWrite(D2, 1);
-digitalWrite(D3, 0);
-digitalWrite(D4, 1);
-digitalWrite(D5, 1);
-
-delay(100);
-digitalWrite(D0, 0);
-digitalWrite(D1, 0);
-digitalWrite(D2, 1);
-digitalWrite(D3, 1);
-digitalWrite(D4, 0);
-digitalWrite(D5, 0);
-
-delay(100);
-digitalWrite(D0, 0);
-digitalWrite(D1, 0);
-digitalWrite(D2, 1);
-digitalWrite(D3, 1);
-digitalWrite(D4, 0);
-digitalWrite(D5, 1);
-
-delay(100);
-digitalWrite(D0, 0);
-digitalWrite(D1, 0);
-digitalWrite(D2, 1);
-digitalWrite(D3, 1);
-digitalWrite(D4, 1);
-digitalWrite(D5, 0);
-
-delay(100);
-digitalWrite(D0, 0);
-digitalWrite(D1, 0);
-digitalWrite(D2, 1);
-digitalWrite(D3, 1);
-digitalWrite(D4, 1);
-digitalWrite(D5, 1);
-
-delay(100);
-digitalWrite(D0, 0);
-digitalWrite(D1, 1);
-digitalWrite(D2, 0);
-digitalWrite(D3, 0);
-digitalWrite(D4, 0);
-digitalWrite(D5, 0);
-
-delay(100);
-digitalWrite(D0, 0);
-digitalWrite(D1, 1);
-digitalWrite(D2, 0);
-digitalWrite(D3, 0);
-digitalWrite(D4, 0);
-digitalWrite(D5, 1);
-
-delay(100);
-digitalWrite(D0, 0);
-digitalWrite(D1, 1);
-digitalWrite(D2, 0);
-digitalWrite(D3, 0);
-digitalWrite(D4, 1);
-digitalWrite(D5, 0);
-
-delay(100);
-digitalWrite(D0, 0);
-digitalWrite(D1, 1);
-digitalWrite(D2, 0);
-digitalWrite(D3, 0);
-digitalWrite(D4, 1);
-digitalWrite(D5, 1);
-
-delay(100);
-digitalWrite(D0, 0);
-digitalWrite(D1, 1);
-digitalWrite(D2, 0);
-digitalWrite(D3, 1);
-digitalWrite(D4, 0);
-digitalWrite(D5, 0);
-
-delay(100);
-digitalWrite(D0, 0);
-digitalWrite(D1, 1);
-digitalWrite(D2, 0);
-digitalWrite(D3, 1);
-digitalWrite(D4, 0);
-digitalWrite(D5, 1);
-
-delay(100);
-digitalWrite(D0, 0);
-digitalWrite(D1, 1);
-digitalWrite(D2, 0);
-digitalWrite(D3, 1);
-digitalWrite(D4, 1);
-digitalWrite(D5, 0);
-
-delay(100);
-digitalWrite(D0, 0);
-digitalWrite(D1, 1);
-digitalWrite(D2, 0);
-digitalWrite(D3, 1);
-digitalWrite(D4, 1);
-digitalWrite(D5, 1);
-
-delay(100);
-digitalWrite(D0, 0);
-digitalWrite(D1, 1);
-digitalWrite(D2, 1);
-digitalWrite(D3, 0);
-digitalWrite(D4, 0);
-digitalWrite(D5, 0);
-
-delay(100);
-digitalWrite(D0, 0);
-digitalWrite(D1, 1);
-digitalWrite(D2, 1);
-digitalWrite(D3, 0);
-digitalWrite(D4, 0);
-digitalWrite(D5, 1);
-
-delay(100);
-digitalWrite(D0, 0);
-digitalWrite(D1, 1);
-digitalWrite(D2, 1);
-digitalWrite(D3, 0);
-digitalWrite(D4, 1);
-digitalWrite(D5, 0);
-
-delay(100);
-digitalWrite(D0, 0);
-digitalWrite(D1, 1);
-digitalWrite(D2, 1);
-digitalWrite(D3, 0);
-digitalWrite(D4, 1);
-digitalWrite(D5, 1);
-
-delay(100);
-digitalWrite(D0, 0);
-digitalWrite(D1, 1);
-digitalWrite(D2, 1);
-digitalWrite(D3, 1);
-digitalWrite(D4, 0);
-digitalWrite(D5, 0);
-
-delay(100);
-digitalWrite(D0, 0);
-digitalWrite(D1, 1);
-digitalWrite(D2, 1);
-digitalWrite(D3, 1);
-digitalWrite(D4, 0);
-digitalWrite(D5, 1);
-
-delay(100);
-digitalWrite(D0, 0);
-digitalWrite(D1, 1);
-digitalWrite(D2, 1);
-digitalWrite(D3, 1);
-digitalWrite(D4, 1);
-digitalWrite(D5, 0);
-
-delay(100);
-digitalWrite(D0, 0);
-digitalWrite(D1, 1);
-digitalWrite(D2, 1);
-digitalWrite(D3, 1);
-digitalWrite(D4, 1);
-digitalWrite(D5, 1);
-
-delay(100);
-digitalWrite(D0, 1);
-digitalWrite(D1, 0);
-digitalWrite(D2, 0);
-digitalWrite(D3, 0);
-digitalWrite(D4, 0);
-digitalWrite(D5, 0);
-
-delay(100);
-digitalWrite(D0, 1);
-digitalWrite(D1, 0);
-digitalWrite(D2, 0);
-digitalWrite(D3, 0);
-digitalWrite(D4, 0);
-digitalWrite(D5, 1);
-
-delay(100);
-digitalWrite(D0, 1);
-digitalWrite(D1, 0);
-digitalWrite(D2, 0);
-digitalWrite(D3, 0);
-digitalWrite(D4, 1);
-digitalWrite(D5, 0);
-
-delay(100);
-digitalWrite(D0, 1);
-digitalWrite(D1, 0);
-digitalWrite(D2, 0);
-digitalWrite(D3, 0);
-digitalWrite(D4, 1);
-digitalWrite(D5, 1);
-
-delay(100);
-digitalWrite(D0, 1);
-digitalWrite(D1, 0);
-digitalWrite(D2, 0);
-digitalWrite(D3, 1);
-digitalWrite(D4, 0);
-digitalWrite(D5, 0);
-
-delay(100);
-digitalWrite(D0, 1);
-digitalWrite(D1, 0);
-digitalWrite(D2, 0);
-digitalWrite(D3, 1);
-digitalWrite(D4, 0);
-digitalWrite(D5, 1);
-
-delay(100);
-digitalWrite(D0, 1);
-digitalWrite(D1, 0);
-digitalWrite(D2, 0);
-digitalWrite(D3, 1);
-digitalWrite(D4, 1);
-digitalWrite(D5, 0);
-
-delay(100);
-digitalWrite(D0, 1);
-digitalWrite(D1, 0);
-digitalWrite(D2, 0);
-digitalWrite(D3, 1);
-digitalWrite(D4, 1);
-digitalWrite(D5, 1);
-
-delay(100);
-digitalWrite(D0, 1);
-digitalWrite(D1, 0);
-digitalWrite(D2, 1);
-digitalWrite(D3, 0);
-digitalWrite(D4, 0);
-digitalWrite(D5, 0);
-
-delay(100);
-digitalWrite(D0, 1);
-digitalWrite(D1, 0);
-digitalWrite(D2, 1);
-digitalWrite(D3, 0);
-digitalWrite(D4, 0);
-digitalWrite(D5, 1);
-
-delay(100);
-digitalWrite(D0, 1);
-digitalWrite(D1, 0);
-digitalWrite(D2, 1);
-digitalWrite(D3, 0);
-digitalWrite(D4, 1);
-digitalWrite(D5, 0);
-
-delay(100);
-digitalWrite(D0, 1);
-digitalWrite(D1, 0);
-digitalWrite(D2, 1);
-digitalWrite(D3, 0);
-digitalWrite(D4, 1);
-digitalWrite(D5, 1);
-
-delay(100);
-digitalWrite(D0, 1);
-digitalWrite(D1, 0);
-digitalWrite(D2, 1);
-digitalWrite(D3, 1);
-digitalWrite(D4, 0);
-digitalWrite(D5, 0);
-
-delay(100);
-digitalWrite(D0, 1);
-digitalWrite(D1, 0);
-digitalWrite(D2, 1);
-digitalWrite(D3, 1);
-digitalWrite(D4, 0);
-digitalWrite(D5, 1);
-
-delay(100);
-digitalWrite(D0, 1);
-digitalWrite(D1, 0);
-digitalWrite(D2, 1);
-digitalWrite(D3, 1);
-digitalWrite(D4, 1);
-digitalWrite(D5, 0);
-
-delay(100);
-digitalWrite(D0, 1);
-digitalWrite(D1, 0);
-digitalWrite(D2, 1);
-digitalWrite(D3, 1);
-digitalWrite(D4, 1);
-digitalWrite(D5, 1);
-
-delay(100);
-digitalWrite(D0, 1);
-digitalWrite(D1, 1);
-digitalWrite(D2, 0);
-digitalWrite(D3, 0);
-digitalWrite(D4, 0);
-digitalWrite(D5, 0);
-
-delay(100);
-digitalWrite(D0, 1);
-digitalWrite(D1, 1);
-digitalWrite(D2, 0);
-digitalWrite(D3, 0);
-digitalWrite(D4, 0);
-digitalWrite(D5, 1);
-
-delay(100);
-digitalWrite(D0, 1);
-digitalWrite(D1, 1);
-digitalWrite(D2, 0);
-digitalWrite(D3, 0);
-digitalWrite(D4, 1);
-digitalWrite(D5, 0);
-
-delay(100);
-digitalWrite(D0, 1);
-digitalWrite(D1, 1);
-digitalWrite(D2, 0);
-digitalWrite(D3, 0);
-digitalWrite(D4, 1);
-digitalWrite(D5, 1);
-
-delay(100);
-digitalWrite(D0, 1);
-digitalWrite(D1, 1);
-digitalWrite(D2, 0);
-digitalWrite(D3, 1);
-digitalWrite(D4, 0);
-digitalWrite(D5, 0);
-
-delay(100);
-digitalWrite(D0, 1);
-digitalWrite(D1, 1);
-digitalWrite(D2, 0);
-digitalWrite(D3, 1);
-digitalWrite(D4, 0);
-digitalWrite(D5, 1);
-
-delay(100);
-digitalWrite(D0, 1);
-digitalWrite(D1, 1);
-digitalWrite(D2, 0);
-digitalWrite(D3, 1);
-digitalWrite(D4, 1);
-digitalWrite(D5, 0);
-
-delay(100);
-digitalWrite(D0, 1);
-digitalWrite(D1, 1);
-digitalWrite(D2, 0);
-digitalWrite(D3, 1);
-digitalWrite(D4, 1);
-digitalWrite(D5, 1);
-
-delay(100);
-digitalWrite(D0, 1);
-digitalWrite(D1, 1);
-digitalWrite(D2, 1);
-digitalWrite(D3, 0);
-digitalWrite(D4, 0);
-digitalWrite(D5, 0);
-
-delay(100);
-digitalWrite(D0, 1);
-digitalWrite(D1, 1);
-digitalWrite(D2, 1);
-digitalWrite(D3, 0);
-digitalWrite(D4, 0);
-digitalWrite(D5, 1);
-
-delay(100);
-digitalWrite(D0, 1);
-digitalWrite(D1, 1);
-digitalWrite(D2, 1);
-digitalWrite(D3, 0);
-digitalWrite(D4, 1);
-digitalWrite(D5, 0);
-
-delay(100);
-digitalWrite(D0, 1);
-digitalWrite(D1, 1);
-digitalWrite(D2, 1);
-digitalWrite(D3, 0);
-digitalWrite(D4, 1);
-digitalWrite(D5, 1);
-
-delay(100);
-digitalWrite(D0, 1);
-digitalWrite(D1, 1);
-digitalWrite(D2, 1);
-digitalWrite(D3, 1);
-digitalWrite(D4, 0);
-digitalWrite(D5, 0);
-
-delay(100);
-digitalWrite(D0, 1);
-digitalWrite(D1, 1);
-digitalWrite(D2, 1);
-digitalWrite(D3, 1);
-digitalWrite(D4, 0);
-digitalWrite(D5, 1);
-
-delay(100);
-digitalWrite(D0, 1);
-digitalWrite(D1, 1);
-digitalWrite(D2, 1);
-digitalWrite(D3, 1);
-digitalWrite(D4, 1);
-digitalWrite(D5, 0);
-
-delay(100);
-digitalWrite(D0, 1);
-digitalWrite(D1, 1);
-digitalWrite(D2, 1);
-digitalWrite(D3, 1);
-digitalWrite(D4, 1);
-digitalWrite(D5, 1);
-
-delay(100);
 }
 
 void setupOTA() {
@@ -788,12 +283,12 @@ void setupWifi() {
   Serial.print("Connecting to ");
   Serial.println(ssid);
 
-#ifdef USE_STATIC_IP
+  #ifdef USE_STATIC_IP
   IPAddress ip(STATIC_IP_ADDRESS);
   IPAddress gateway(STATIC_IP_GATEWAY);
   IPAddress subnet(STATIC_IP_SUBNET);
   WiFi.config(ip,gateway,subnet);
-#endif
+  #endif
   WiFi.begin(ssid, password);
 
   int tries = 0;
@@ -832,8 +327,32 @@ void reconnect() {
 void callback(char* topic, byte* payload, unsigned int length) {
   //handle messages
 
-  DynamicJsonBuffer  jsonBuffer(200);
-  JsonObject& root = jsonBuffer.parseObject((const char*) payload);
+  if (*((char*)payload) == '{') {
+    /* process JSON payload */
+    processJsonPayload(topic, payload, length);
+  } else {
+    processRawPayload(topic, payload, length);
+  }
+
+}
+
+void processRawPayload(char* topic, byte* payload, unsigned int length) {
+  if (strcmp(topic, RECEIVE_TOPIC)==0) // if it is a command topic message then execute command
+  {
+    byte data = *payload;
+    digitalWrite(D0, (data & (0x1<<5)));
+    digitalWrite(D1, (data & (0x1<<4)));
+    digitalWrite(D2, (data & (0x1<<3)));
+    digitalWrite(D3, (data & (0x1<<2)));
+    digitalWrite(D4, (data & (0x1<<1)));
+    digitalWrite(D5, (data & (0x1<<0)));
+  }
+}
+
+void processJsonPayload(char* topic, byte* payload, unsigned int length) {
+  DynamicJsonDocument  root(200);
+
+  deserializeJson(root, ((const char*)payload));
   const char *deviceName = root["device_name"] | "";
   const char *command = root["command"] | "";
 
@@ -849,41 +368,6 @@ void callback(char* topic, byte* payload, unsigned int length) {
   if (strcmp(command, "restart")==0) {
     ESP.reset();
   }
-
-//  //state machine
-//  switch(lockState) {
-//    case LockStates::LOCKED:
-//    if (strcmp(command, "open_door")==0) {
-//      openDoorHandler(root);
-//    }
-//    if (strcmp(command, "deny_access") == 0) {
-//      beepForInvalidCard(getOrDefault(root, "beeps", 2), getOrDefault(root, "beep_duration", 100));
-//    }
-//    break;
-//
-//    case LockStates::UNLOCKED_FOR_DURATION:
-//    if (strcmp(command, "open_door")==0) {
-//      openDoorHandler(root);
-//    }
-//    if (strcmp(command, "deny_access") == 0) {
-//      beepForInvalidCard(getOrDefault(root, "beeps", 2), getOrDefault(root, "beep_duration", 100));
-//    }
-//    break;
-//
-//    case LockStates::EMERGENCY_UNLOCKED:
-//    if (strcmp(command, "end_emergency")==0) {
-//      float duration = getOrDefault(root, "duration", 5);
-//      duration = duration*1000;
-//      unsigned long unlockDuration = clamp(duration, DOOR_UNLOCK_MIN_DURATION, DOOR_UNLOCK_MAX_DURATION);
-//      exitEmergencyMode(unlockDuration);
-//    }
-//    break;
-//  }
-// ACS - Access Control System
-//  - server to ACS {"command": "open_door", "duration": 5, "beeps": 0, "device_name": "main_door" } - whenever valid card is swiped
-//  - server to ACS {"command": "open_door", "duration": 5, "beeps": 1, "device_name": "main_door" } - whenever valid face is recognized
-//  - server to ACS {"command": "deny_access", "beeps": 2} - whenever person is not authorized
-//
 }
 
 void loop() {
