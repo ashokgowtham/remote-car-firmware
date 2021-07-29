@@ -84,104 +84,8 @@ void heartBeatCallback() {
   client.publish(SEND_TOPIC, buffer);
 }
 
-void stopCar() {
+void stopCar() {}
 
-}
-
-//
-//void stateChangeTo(LockStates newLockState) {
-//  lockState = newLockState;
-//  Serial.print("Lock state changed to ");
-//  Serial.println(asInteger(newLockState));
-//}
-
-//void lockDoorCallback() {
-//  Serial.println("Locking door.");
-//  digitalWrite(LOCK_RELAY, DOOR_LOCKED);
-//  digitalWrite(ENTRY_CARD_READER_LED, LED_RED);
-//  digitalWrite(EXIT_CARD_READER_LED, LED_RED);
-//  stateChangeTo(LockStates::LOCKED);
-//}
-//
-//void lockDoorAfter(unsigned long durationMillis) {
-//  lockDoorTask.restartDelayed(durationMillis);
-//}
-//
-//void unlockDoor() {
-//  digitalWrite(LOCK_RELAY, DOOR_UNLOCKED);
-//  digitalWrite(ENTRY_CARD_READER_LED, LED_GREEN);
-//  digitalWrite(EXIT_CARD_READER_LED, LED_GREEN);
-//}
-//
-//void beep(int number_of_beeps, int beep_duration) {
-//  number_of_beeps = clamp(number_of_beeps, 0, MAX_NUMBER_OF_BEEPS);
-//  beep_duration = clamp(beep_duration, 0, MAX_BEEP_DURATION);
-//  if(number_of_beeps != 0) {
-//    beepTask.setInterval(beep_duration);
-//    beepTask.setIterations(2 * number_of_beeps);
-//    beepTask.setCallback(&beepOnCallback);
-//    beepTask.restartDelayed(0);
-//  }
-//}
-//
-//void unlockDoorFor(unsigned long durationMillis, int number_of_beeps, int beep_duration) {
-//  Serial.print("Unlocking door for ");
-//  Serial.print(durationMillis);
-//  Serial.println(" milliseconds");
-//  unlockDoor();
-//  beep(number_of_beeps, beep_duration);
-//  lockDoorAfter(durationMillis);
-//  stateChangeTo(LockStates::UNLOCKED_FOR_DURATION);
-//}
-//
-//void beepOnCallback() {
-//  digitalWrite(ENTRY_CARD_READER_BEEP, BEEP_ON);
-//  digitalWrite(EXIT_CARD_READER_BEEP, BEEP_ON);
-//  beepTask.setCallback(&beepOffCallback);
-//}
-//
-//void beepOffCallback() {
-//  digitalWrite(ENTRY_CARD_READER_BEEP, BEEP_OFF);
-//  digitalWrite(EXIT_CARD_READER_BEEP, BEEP_OFF);
-//  beepTask.setCallback(&beepOnCallback);
-//}
-//
-//void beepForInvalidCard(int number_of_beeps, int beep_duration) {
-//  Serial.println("Beeping for invalid card.");
-//  digitalWrite(ENTRY_CARD_READER_LED, LED_RED);
-//  digitalWrite(EXIT_CARD_READER_LED, LED_RED);
-//  beep(number_of_beeps, beep_duration);
-//}
-//
-//void enterEmergencyMode() {
-//  Serial.print("Entering emergency mode. Unlocking door.");
-//  unlockDoor();
-//  stateChangeTo(LockStates::EMERGENCY_UNLOCKED);
-//  lockDoorTask.disable();
-//  EEPROM.write(0, 1);
-//  EEPROM.commit();
-//}
-//
-//void exitEmergencyMode(unsigned long durationMillis) {
-//  Serial.print("Exiting emergency mode. Locking door in ");
-//  Serial.print(durationMillis);
-//
-//  Serial.println(" milliseconds");
-//  lockDoorAfter(durationMillis);
-//  stateChangeTo(LockStates::UNLOCKED_FOR_DURATION);
-//  EEPROM.write(0, 0);
-//  EEPROM.commit();
-//}
-
-//void loadStateFromStorage() {
-//  unsigned emergencyMode = EEPROM.read(0);
-//  if(emergencyMode) {
-//    enterEmergencyMode();
-//  } else {
-//    digitalWrite(LOCK_RELAY, DOOR_LOCKED);          // HIGH=door_locked LOW=door_unlocked
-//  }
-//}
-//
 void publishStartupMessage() {
   //MQTT
   if (!client.connected()) {
@@ -195,7 +99,7 @@ void publishStartupMessage() {
 
 void setup() {
 
-//  EEPROM.begin(512);
+  // EEPROM.begin(512);
   pinMode(D0, OUTPUT);
   pinMode(D1, OUTPUT);
   pinMode(D2, OUTPUT);
@@ -211,15 +115,15 @@ void setup() {
   digitalWrite(D5, TURN_MOTOR_ENABLE_HIGH);
 
   delay(200);
-//
-//  digitalWrite(D0, MOTOR_FORWARD_A);
-//  digitalWrite(D1, MOTOR_FORWARD_B);
-//  digitalWrite(D2, MOTOR_RIGHT_A);
-//  digitalWrite(D3, MOTOR_RIGHT_B);
-//  digitalWrite(D4, ACCEL_MOTOR_ENABLE_HIGH);
-//  digitalWrite(D5, TURN_MOTOR_ENABLE_HIGH);
-//
-//  delay(200);
+
+  // digitalWrite(D0, MOTOR_FORWARD_A);
+  // digitalWrite(D1, MOTOR_FORWARD_B);
+  // digitalWrite(D2, MOTOR_RIGHT_A);
+  // digitalWrite(D3, MOTOR_RIGHT_B);
+  // digitalWrite(D4, ACCEL_MOTOR_ENABLE_HIGH);
+  // digitalWrite(D5, TURN_MOTOR_ENABLE_HIGH);
+
+  // delay(200);
 
   Serial.begin(115200);
   setupWifi();
@@ -231,7 +135,7 @@ void setup() {
   taskRunner.addTask(heartBeatTask);
   heartBeatTask.enable();
 
-//  loadStateFromStorage();
+  // loadStateFromStorage();
   publishStartupMessage();
 }
 
@@ -356,9 +260,9 @@ void processJsonPayload(char* topic, byte* payload, unsigned int length) {
   const char *deviceName = root["device_name"] | "";
   const char *command = root["command"] | "";
 
-//  if (strcmp(command, "start_emergency")==0) {
-//    enterEmergencyMode();
-//  }
+  // if (strcmp(command, "start_emergency")==0) {
+  //   enterEmergencyMode();
+  // }
 
   if (stringNotEquals(deviceName, DEVICE_NAME) && stringNotEquals(deviceName, "all")) {
     //don't process messages not intended for this node
@@ -376,7 +280,7 @@ void loop() {
     Serial.println("MQTT not connected");
     stopCar();
     reconnect();
-//    loadStateFromStorage();
+    // loadStateFromStorage();
   }
   client.loop();
 
